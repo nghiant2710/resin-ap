@@ -10,13 +10,13 @@ RUN apt-get update && apt-get install -y python \
 										unzip
 
 # If Wifi Adapter is Edimax, Uncomment this block
-RUN wget http://www.daveconroy.com/wp3/wp-content/uploads/2013/07/hostapd.zip \
-	&& unzip hostapd.zip \
-	&& mv /usr/sbin/hostapd /usr/sbin/hostapd.bak \
-	&& mv hostapd /usr/sbin/hostapd.edimax \
-	&& ln -sf /usr/sbin/hostapd.edimax /usr/sbin/hostapd \
-	&& chown root.root /usr/sbin/hostapd \
-	&& chmod 755 /usr/sbin/hostapd
+#RUN wget http://www.daveconroy.com/wp3/wp-content/uploads/2013/07/hostapd.zip \
+#	&& unzip hostapd.zip \
+#	&& mv /usr/sbin/hostapd /usr/sbin/hostapd.bak \
+#	&& mv hostapd /usr/sbin/hostapd.edimax \
+#	&& ln -sf /usr/sbin/hostapd.edimax /usr/sbin/hostapd \
+#	&& chown root.root /usr/sbin/hostapd \
+#	&& chmod 755 /usr/sbin/hostapd
 
 ENV SSID ResinAP
 ENV PSK 12345678-
