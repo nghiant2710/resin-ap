@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y python \
 										iptables \
 										nano \
 										net-tools \
-										wget
+										wget \
+										unzip
 
 # If Wifi Adapter is Edimax, Uncomment this block
 RUN wget http://www.daveconroy.com/wp3/wp-content/uploads/2013/07/hostapd.zip \
