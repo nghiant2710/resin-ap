@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set SSID and PSK
+sed -i -e "s/SETSSID/$SSID/" -e "s/SETPSK/$PSK/" /etc/hostapd/hostapd.conf
+
 # Enable NAT
 ifdown wlan0
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE \

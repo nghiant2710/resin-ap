@@ -35,15 +35,11 @@ RUN echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 #RUN update-rc.d hostapd enable
 RUN update-rc.d dnsmasq enable
 
-# Set SSID and PSK
-
 ADD . /App/
 RUN mv /etc/dnsmasq.conf /etc/dnsmasq.default \
 	&& cp /App/hostapd.conf /etc/hostapd/hostapd.conf \
 	&& cp /App/dnsmasq.conf /etc/dnsmasq.conf \
 	&& cp /App/hosts.me /etc/hosts.me
-
-RUN sed -i -e "s/SETSSID/$SSID/" -e "s/SETPSK/$PSK/" /etc/hostapd/hostapd.conf
 
 # Start web server
 CMD ["bash", "-ex", "/App/start.sh"]
