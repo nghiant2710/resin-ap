@@ -1,6 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 
-PORT = 80
+PORT = 8000
  
 class ServerHandler(BaseHTTPRequestHandler):
 	
