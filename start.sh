@@ -16,4 +16,4 @@ sleep 1m
 
 # Start AP and webserver
 hostapd -dd -B /etc/hostapd/hostapd.conf
-python /App/server.py 
+python /App/server.py & tail -f /var/log/dnsmasq.log
