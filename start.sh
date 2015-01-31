@@ -7,7 +7,9 @@ sed -i -e "s/SETSSID/$SSID/" -e "s/SETPSK/$PSK/" /etc/hostapd/hostapd.conf
 ifdown wlan0
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE \
 	&& iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT \
-	&& iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+	&& iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT \
+	&& iptables -t nat -A OUTPUT -p udp --dport 53 -j DNAT --to-ports 5353 \
+	&& iptables -t nat -A OUTPUT -p tcp --dport 53 -j DNAT --to-ports 5353
 
 # Restart DNSMASQ service
 ifup wlan0
